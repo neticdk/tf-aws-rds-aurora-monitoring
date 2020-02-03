@@ -30,6 +30,7 @@ module "db_monitoring" {
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | cluster\_identifier | The RDS Cluster Identifier | string | n/a | yes |
+| enable\_monitoring | Enable or disable monitoring | bool | true | no |
 | connection\_limit\_critical\_threshold | Connection limit critical threshold | number | `"1000"` | no |
 | connection\_limit\_warning\_threshold | Connection limit warning threshold | number | `"900"` | no |
 | connection\_read\_latency\_warning\_threshold | Connection read_ atency warning threshold | number | `"0.02"` | no |

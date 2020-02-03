@@ -10,6 +10,12 @@ variable "tags" {
   default     = {}
 }
 
+variable "enable_monitoring" {
+  description = "Enable or disable monitoring"
+  type        = bool
+  default     = true
+}
+
 variable "sns_topic" {
   description = "ARN of SNS topic"
   type        = string
