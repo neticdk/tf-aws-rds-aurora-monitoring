@@ -5,12 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-locals {
-  tags = {
-    Terraform = "true"
-  }
-}
-
 resource "aws_cloudwatch_metric_alarm" "rds_connection_limit_warning" {
   count                     = var.enable_monitoring ? 1 : 0
   alarm_name                = "database connection limit warning"

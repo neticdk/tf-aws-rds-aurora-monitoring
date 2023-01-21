@@ -5,11 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  default     = {}
-}
-
 variable "enable_monitoring" {
   description = "Enable or disable monitoring"
   type        = bool
