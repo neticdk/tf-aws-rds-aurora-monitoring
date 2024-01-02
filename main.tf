@@ -19,6 +19,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_connection_limit_warning" {
   insufficient_data_actions = []
   alarm_actions             = [var.sns_topic]
   ok_actions                = [var.sns_topic]
+  treat_missing_data        = var.missing_data_treatment
 
   dimensions = {
     DBClusterIdentifier = var.cluster_identifier
@@ -39,6 +40,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_connection_limit_critical" {
   insufficient_data_actions = []
   alarm_actions             = [var.sns_topic]
   ok_actions                = [var.sns_topic]
+  treat_missing_data        = var.missing_data_treatment
 
   dimensions = {
     DBClusterIdentifier = var.cluster_identifier
@@ -59,6 +61,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_connection_read_latency_warning" {
   insufficient_data_actions = []
   alarm_actions             = [var.sns_topic]
   ok_actions                = [var.sns_topic]
+  treat_missing_data        = var.missing_data_treatment
 
   dimensions = {
     DBClusterIdentifier = var.cluster_identifier
@@ -79,6 +82,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_connection_write_latency_warning" {
   insufficient_data_actions = []
   alarm_actions             = [var.sns_topic]
   ok_actions                = [var.sns_topic]
+  treat_missing_data        = var.missing_data_treatment
 
   dimensions = {
     DBClusterIdentifier = var.cluster_identifier

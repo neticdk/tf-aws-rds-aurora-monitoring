@@ -50,3 +50,8 @@ variable "connection_write_latency_warning_threshold" {
   type        = number
   default     = 0.02
 }
+
+variable "missing_data_treatment" {
+  description = "How should missing data be treated"
+  type        = string
+}
