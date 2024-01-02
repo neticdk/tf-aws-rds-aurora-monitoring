@@ -24,6 +24,8 @@ resource "aws_cloudwatch_metric_alarm" "rds_connection_limit_warning" {
   dimensions = {
     DBClusterIdentifier = var.cluster_identifier
   }
+
+  tags = var.tags
 }
 
 resource "aws_cloudwatch_metric_alarm" "rds_connection_limit_critical" {
@@ -45,6 +47,8 @@ resource "aws_cloudwatch_metric_alarm" "rds_connection_limit_critical" {
   dimensions = {
     DBClusterIdentifier = var.cluster_identifier
   }
+
+  tags = var.tags
 }
 
 resource "aws_cloudwatch_metric_alarm" "rds_connection_read_latency_warning" {
@@ -66,6 +70,8 @@ resource "aws_cloudwatch_metric_alarm" "rds_connection_read_latency_warning" {
   dimensions = {
     DBClusterIdentifier = var.cluster_identifier
   }
+
+  tags = var.tags
 }
 
 resource "aws_cloudwatch_metric_alarm" "rds_connection_write_latency_warning" {
@@ -87,4 +93,6 @@ resource "aws_cloudwatch_metric_alarm" "rds_connection_write_latency_warning" {
   dimensions = {
     DBClusterIdentifier = var.cluster_identifier
   }
+
+  tags = var.tags
 }
