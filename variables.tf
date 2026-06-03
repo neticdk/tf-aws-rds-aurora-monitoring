@@ -55,3 +55,9 @@ variable "missing_data_treatment" {
   description = "How should missing data be treated"
   type        = string
 }
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map
+  default     = {}
+}
