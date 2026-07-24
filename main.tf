@@ -7,7 +7,7 @@
 
 resource "aws_cloudwatch_metric_alarm" "rds_connection_limit_warning" {
   count                     = var.enable_monitoring ? 1 : 0
-  alarm_name                = "database connection limit warning"
+  alarm_name                = var.alarm_name_prefix != null && var.alarm_name_prefix != "" ? "${var.alarm_name_prefix} database connection limit warning" : "database connection limit warning"
   comparison_operator       = "GreaterThanOrEqualToThreshold"
   evaluation_periods        = "1"
   metric_name               = "DatabaseConnections"
@@ -28,7 +28,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_connection_limit_warning" {
 
 resource "aws_cloudwatch_metric_alarm" "rds_connection_limit_critical" {
   count                     = var.enable_monitoring ? 1 : 0
-  alarm_name                = "database connection limit critical"
+  alarm_name                = var.alarm_name_prefix != null && var.alarm_name_prefix != "" ? "${var.alarm_name_prefix} database connection limit critical" : "database connection limit critical"
   comparison_operator       = "GreaterThanOrEqualToThreshold"
   evaluation_periods        = "1"
   metric_name               = "DatabaseConnections"
@@ -49,7 +49,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_connection_limit_critical" {
 
 resource "aws_cloudwatch_metric_alarm" "rds_connection_read_latency_warning" {
   count                     = var.enable_monitoring ? 1 : 0
-  alarm_name                = "database read latency to high"
+  alarm_name                = var.alarm_name_prefix != null && var.alarm_name_prefix != "" ? "${var.alarm_name_prefix} database read latency to high" : "database read latency to high"
   comparison_operator       = "GreaterThanOrEqualToThreshold"
   evaluation_periods        = "1"
   metric_name               = "ReadLatency"
@@ -70,7 +70,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_connection_read_latency_warning" {
 
 resource "aws_cloudwatch_metric_alarm" "rds_connection_write_latency_warning" {
   count                     = var.enable_monitoring ? 1 : 0
-  alarm_name                = "database write latency to high"
+  alarm_name                = var.alarm_name_prefix != null && var.alarm_name_prefix != "" ? "${var.alarm_name_prefix} database write latency to high" : "database write latency to high"
   comparison_operator       = "GreaterThanOrEqualToThreshold"
   evaluation_periods        = "1"
   metric_name               = "WriteLatency"

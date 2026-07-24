@@ -55,3 +55,8 @@ variable "missing_data_treatment" {
   description = "How should missing data be treated"
   type        = string
 }
+
+variable "alarm_name_prefix" {
+  description = "Add a prefix to the alarm names"
+  type = string
+}
