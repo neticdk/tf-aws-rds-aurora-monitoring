@@ -2,7 +2,7 @@
 
 ## Supported Terraform Versions
 
-Terraform 0.12
+Terraform >= 1.15, AWS provider ~> 6.0
 
 ## Usage
 
@@ -18,7 +18,7 @@ resource "aws_sns_topic" "this" {
 }
 
 module "db_monitoring" {
-  source = "github.com/neticdk/tf-aws-rds-aurora-monitoring"
+  source = "github.com/neticdk/tf-aws-rds-aurora-monitoring?ref=v2.0.0"
 
   cluster_identifier = module.db.this_rds_cluster_id
   sns_topic          = sns-topic.this.sns_topic_arn
@@ -37,7 +37,7 @@ module "db_monitoring" {
 | connection\_write\_latency\_warning\_threshold | Connection write latency warning threshold | number | `"0.02"` | no |
 | max\_connections | Maximum connections allowed in the cluster | number | `"1000"` | no |
 | sns\_topic | ARN of SNS topic | string | n/a | yes |
-| tags | A map of tags to add to all resources | map | `<map>` | no |
+| tags | A map of tags to add to all resources | map(string) | `<map>` | no |
 
 <!---END OF PRE-COMMIT-TERRAFORM DOCS HOOK--->
 
